@@ -1,0 +1,18 @@
+<%- include("partials/header") -%>
+  <h1>Post</h1>
+  <p>
+    <ul>
+      <%
+      for(var i=0; i < titlesPost.length; i++){
+        %>
+        <li><%= titlesPost[i] %></li>
+        <p><%= postsContent[i] %></p>
+        <%
+      }
+      %>
+    </ul>
+  </p>
+
+  <a href="/compose" class="btn btn-primary">New Post</a>
+
+<%- include("partials/footer") -%>
