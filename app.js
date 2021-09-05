@@ -33,21 +33,20 @@ app.get('/compose',function(req, res){
   res.render('compose');
 });
 
-var titlesPost = [];
-var postsContent = [];
+var posts = [];
 app.post('/compose',function(req, res){
-  var postTitle = req.body.postTitle;
-  var postContent = req.body.postContent;
-  titlesPost.push(postTitle);
-  postsContent.push(postContent);
+  const post = {
+    title : req.body.postTitle,
+    content : req.body.postContent
+  }
+  posts.push(post);
   res.redirect("/post");
 })
 
 app.get('/post',function(req, res){
-  //console.log(titlesPost);
+  //console.log(posts);
   res.render('post',{
-    titlesPost : titlesPost,
-    postsContent : postsContent,
+    posts : posts
   })
 })
 
