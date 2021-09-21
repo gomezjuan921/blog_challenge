@@ -50,6 +50,21 @@ app.get('/post',function(req, res){
   })
 })
 
+app.get('/post/:postName',function(req, res){
+  //console.log(req.params.postName);
+  var requestTitle = req.params.postName;
+  //res.send(requestTitle);
+  posts.forEach(function(post) {
+    console.log(post.title);
+    if(post.title==requestTitle){
+      console.log(post.title + " existe");
+    }
+  });
+
+
+
+})
+
 app.listen(port, function(req, res) {
   console.log(`Server dev at http://localhost:${port}`)
 })
