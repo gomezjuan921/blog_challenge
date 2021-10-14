@@ -4,9 +4,10 @@
     <ul>
       <%
       posts.forEach(function(element) {
+        var contenido_mostrar = element.content;
         %>
-        <li><%= element.title %></li>
-        <p><%= element.content %></p>
+        <li> <h1><%= element.title %></h1>  </li>
+        <p><%= contenido_mostrar.substring(0,100) %> ... <a href="/resumen/<%= element.title %>">Leer mas</a></p>
         <%
       });
       %>

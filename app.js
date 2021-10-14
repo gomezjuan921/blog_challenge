@@ -50,19 +50,17 @@ app.get('/post',function(req, res){
   })
 })
 
-app.get('/post/:postName',function(req, res){
-  //console.log(req.params.postName);
-  var requestTitle = req.params.postName;
-  //res.send(requestTitle);
+app.get('/resumen/:postName',function(req, res){
+  var requestTitle = req.params.postName.toLowerCase();
   posts.forEach(function(post) {
-    console.log(post.title);
-    if(post.title==requestTitle){
-      console.log(post.title + " existe");
+    var storeTitle = post.title.toLowerCase();
+    if(storeTitle===requestTitle){
+      res.render('resumen',{
+        title : post.title,
+        content : post.content,
+      });
     }
   });
-
-
-
 })
 
 app.listen(port, function(req, res) {
